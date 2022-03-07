@@ -5,15 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "demo_go_router",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "demo_go_router (profile mode)",
+            "name": "Debug demo_go_router",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "program": "lib/main.dart"
         },
         {
             "name": "demo_go_router (release mode)",

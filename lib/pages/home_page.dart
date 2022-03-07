@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../app/app_bloc.dart';
+import 'package:go_router/go_router.dart';
+import '../blocs/app/app_bloc.dart';
 import '../routes/app_router.dart';
 import '../service_locator.dart';
 
@@ -22,7 +23,9 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: () {}, child: Text('Shop')),
+          ElevatedButton(onPressed: () {
+            GoRouter.of(context).push('/shop');
+          }, child: Text('Shop')),
           ElevatedButton(onPressed: () {}, child: Text('Cart')),
           ElevatedButton(onPressed: () {}, child: Text('Profile')),
           ElevatedButton(
