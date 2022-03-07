@@ -65,7 +65,7 @@ class AppRouter {
         routes: [
           GoRoute(
             name: 'product',
-            path: 'product/:productId',
+            path: ':productId',
             pageBuilder: (context, state) {
               String productId = state.params['productId'] ?? '';
               return MaterialPage(

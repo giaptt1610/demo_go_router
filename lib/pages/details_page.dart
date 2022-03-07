@@ -53,7 +53,7 @@ class _DetailsPageState extends State<DetailsPage> {
           children: [
             Text('${_product?.name}'),
             Text('${_product?.desc}'),
-            Text('${_product?.price ?? 0 * 1000} đ'),
+            Text('${(_product?.price ?? 0) * 1000} đ'),
             ElevatedButton(
                 onPressed: () {
                   if (_product != null) {
