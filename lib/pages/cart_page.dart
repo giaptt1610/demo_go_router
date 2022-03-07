@@ -22,7 +22,7 @@ class _CartPageState extends State<CartPage> {
       appBar: AppBar(
         title: Text('Cart, ${router.router.location}'),
       ),
-      body: Center(
+      body: SafeArea(
         child: Column(
           children: [
             Text('List items:'),
@@ -40,6 +40,32 @@ class _CartPageState extends State<CartPage> {
                   ),
                 );
               },
+            ),
+            Divider(),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                padding: const EdgeInsets.only(right: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('Total: '),
+                    BlocBuilder<CartBloc, CartState>(
+                      builder: (context, state) {
+                        return Text('${state.totalPrice * 1000} đ');
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 50),
+            Container(
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text('Checkout'),
+              ),
             ),
           ],
         ),

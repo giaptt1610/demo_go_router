@@ -32,4 +32,13 @@ class CartState {
 
     return CartState(items: newMap);
   }
+
+  double get totalPrice {
+    double total = 0.0;
+
+    items.forEach((product, quatity) {
+      total += product.price * quatity;
+    });
+    return total;
+  }
 }

@@ -23,10 +23,16 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: () {
-            GoRouter.of(context).push('/shop');
-          }, child: Text('Shop')),
-          ElevatedButton(onPressed: () {}, child: Text('Cart')),
+          ElevatedButton(
+              onPressed: () {
+                GoRouter.of(context).push('/shop');
+              },
+              child: Text('Shop')),
+          ElevatedButton(
+              onPressed: () {
+                GoRouter.of(context).push('/cart');
+              },
+              child: Text('Cart')),
           ElevatedButton(onPressed: () {}, child: Text('Profile')),
           ElevatedButton(
               onPressed: () {

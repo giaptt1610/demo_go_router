@@ -27,6 +27,7 @@ class CartItem extends StatelessWidget {
               ],
             ),
           ),
+          Text('${product.price * 1000} đ x '),
           SizedBox(
             child: Column(
               children: [
