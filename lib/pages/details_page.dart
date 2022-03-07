@@ -1,4 +1,3 @@
-import 'package:demo_go_router/app/app_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,14 +17,7 @@ class _DetailsPageState extends State<DetailsPage> {
       ),
       body: Center(
         child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                context.read<AppBloc>().add(LoginEvent());
-              },
-              child: Text(''),
-            ),
-          ],
+          children: [],
         ),
       ),
     );

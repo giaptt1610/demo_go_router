@@ -12,7 +12,7 @@ class CartState {
       int qty = newMap[product] ?? 0;
       newMap[product] = qty + 1;
     } else {
-      newMap.putIfAbsent(product, () => 0);
+      newMap.putIfAbsent(product, () => 1);
     }
 
     return CartState(items: newMap);

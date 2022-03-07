@@ -38,6 +38,7 @@ class _ShopPageState extends State<ShopPage> {
             builder: (context, state) {
               return Badge(
                 badgeContent: Text('${state.items.length}'),
+                showBadge: state.items.isNotEmpty,
                 position: BadgePosition(top: 0, end: 5),
                 child: IconButton(
                   onPressed: () {
