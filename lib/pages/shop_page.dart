@@ -1,11 +1,11 @@
-import 'package:demo_go_router/blocs/cart/cart_bloc.dart';
-import 'package:demo_go_router/models/product.dart';
-import 'package:demo_go_router/routes/app_router.dart';
-import 'package:demo_go_router/widgets/shop_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:badges/badges.dart';
 
+import '../blocs/cart/cart_bloc.dart';
+import '../routes/app_router.dart';
+import '../widgets/shop_item.dart';
+import '../mocks/product_repo_mock.dart';
 import '../service_locator.dart';
 
 class ShopPage extends StatefulWidget {
@@ -16,14 +16,7 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-  final listProducts = <Product>[
-    Product(id: '1', name: 'Product 1', price: 10),
-    Product(id: '2', name: 'Product 2', price: 15),
-    Product(id: '3', name: 'Product 3', price: 12.5),
-    Product(id: '4', name: 'Product 4', price: 9.5),
-    Product(id: '5', name: 'Product 5', price: 6.5),
-    Product(id: '6', name: 'Product 6', price: 4.5),
-  ];
+  final listProducts = getIt<ProductRepoMock>().listProducts;
 
   @override
   Widget build(BuildContext context) {

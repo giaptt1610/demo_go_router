@@ -1,8 +1,8 @@
-import 'package:demo_go_router/blocs/cart/cart_bloc.dart';
-import 'package:demo_go_router/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import '../blocs/cart/cart_bloc.dart';
+import '../models/product.dart';
 
 class ShopItem extends StatelessWidget {
   final Product product;
@@ -17,8 +17,8 @@ class ShopItem extends StatelessWidget {
           Expanded(
             child: InkWell(
                 onTap: () {
-                  GoRouter.of(context)
-                      .push('/product-detail', extra: {'item': product});
+                  context
+                      .pushNamed('product', params: {'productId': product.id});
                 },
                 child: Column(
                   children: [
