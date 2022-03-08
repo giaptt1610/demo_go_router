@@ -20,5 +20,10 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
       emit(state.copyWith(loading: false, isLogged: false));
     });
+
+    on<NewDeepLinkEvent>((event, emit) {
+      print('--- giap, new deep link: ${event.link}');
+      emit(state.copyWith(deepLink: event.link));
+    });
   }
 }

@@ -3,23 +3,45 @@ import 'package:demo_go_router/routes/app_router.dart';
 import 'package:demo_go_router/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:uni_links/uni_links.dart';
 
 import 'blocs/app/app_bloc.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   setupLocator();
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   final appBloc = AppBloc();
   late AppRouter appRouter;
 
-  MyApp() {
+  _MyAppState() {
     appRouter = AppRouter(appBloc.stream);
     getIt.registerSingleton<AppRouter>(appRouter);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    linkStream.listen((link) {
+      print('--- giap, link: $link');
+      try {
+        final uri = Uri.parse(link!);
+        String path = uri.path;
+        appBloc.add(NewDeepLinkEvent(path));
+      } catch (e) {
+        print('--- giap, ${e.toString()}');
+      }
+    });
   }
 
   @override

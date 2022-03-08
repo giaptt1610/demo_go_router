@@ -23,7 +23,11 @@ class AppRouter {
         if (!event.authenticated) {
           router.go('/login');
         } else {
-          router.go('/home');
+          if (event.deepLink.isNotEmpty) {
+            router.go(event.deepLink);
+          } else {
+            router.go('/home');
+          }
         }
       }
     });
